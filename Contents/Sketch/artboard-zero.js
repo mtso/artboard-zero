@@ -1,17 +1,12 @@
 
 
 var onArtboardChanged = function(context) {
-	app = NSApp.delegate();
-	app.openPreferencesWindowWithPreferencePaneIdentifier("plugins");
 
 	action = context.actionContext;
 
 	document = action.document;
-
-	view = document.currentView();
+	
 	page = document.currentPage();
-
-	rectToCenter = page.rect();
 
 	artboards = page.artboards();
 
@@ -27,7 +22,14 @@ var onArtboardChanged = function(context) {
 		frame.x = 0;
 		frame.y = 0;
 
+
+		view = document.currentView();
+		rectToCenter = page.rect();
 		view.centerRect(rectToCenter);
+
+		page.deselectAllLayers();
+
+		firstArtboard.select_byExpandingSelection(true, true);
 	}
 
 };

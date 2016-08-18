@@ -13,6 +13,13 @@
       	  "ArtboardChanged.finish" : "onArtboardChanged",
       	}
       },
+    },
+    {
+      "script" : "reload-inspector.js",
+      "handler" : "reloadInspector",
+      "shortcut" : "cmd 7",
+      "name" : "Reload Inspector",
+      "identifier" : "reloadinspector"
     }
   ],
 }
