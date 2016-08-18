@@ -1,25 +1,32 @@
 {
   "name" : "Artboard Zero",
-  "description" : "Places the first artboard of each page at (0, 0).",
-  "version" : "1.0",
+  "description" : "Places the first artboard of each page at the origin.",
+  "version" : "0.1.0",
   "identifier" : "com.matthewtso.sketch.artboard-zero",
   "author" : "Matthew Tso",
   "authorEmail" : "mtso@mail.com",
   "commands" : [
     {
       "script" : "artboard-zero.js",
+      "name" : "Artboard Zero",
+      "identifier" : "placeartboard",
       "handlers" : {
       	"actions" : {
       	  "ArtboardChanged.finish" : "onArtboardChanged",
       	}
-      },
+      }
     },
     {
-      "script" : "reload-inspector.js",
-      "handler" : "reloadInspector",
-      "shortcut" : "cmd 7",
-      "name" : "Reload Inspector",
-      "identifier" : "reloadinspector"
+      "name": "Set Origin",
+      "identifier": "preference-setorigin",
+      "shortcut": "",
+      "script": "artboard-zero.js"
     }
   ],
+  "menu": {
+  	"title": "Place Artboard",
+  	"items": [
+      "preference-setorigin"
+    ]
+  }
 }

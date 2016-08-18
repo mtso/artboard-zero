@@ -5,6 +5,8 @@ var onArtboardChanged = function(context) {
 	action = context.actionContext;
 	document = action.document;
 
+    document.showMessage("Triggered.");
+
 	page = document.currentPage();
 	artboards = page.artboards();
 
@@ -12,14 +14,14 @@ var onArtboardChanged = function(context) {
 	if (count == 1) {
 
 		// Get the first artboard
-		firstArtboard = artboards[0];
+		firstArtboard = page.currentArtboard(); // artboards[0];
 
 		// Move the artboard's frame to the origin
 		frame = firstArtboard.frame();		
 		frame.x = 0;
 		frame.y = 0;
 
-		document.showMessage("Moved the first artboard to (0, 0).");
+		// document.showMessage("Moved the first artboard to (0, 0).");
 
 		// Deselect all layers
 		// Then reselect the first artboard to reload the inspector
@@ -29,8 +31,10 @@ var onArtboardChanged = function(context) {
 
 		// Center the view on the artboard
 		view = document.currentView();
-		offsetRect = firstArtboard.rect().scaleBy(1.2);
-		view.zoomToFitRect(offsetRect);
+		tempFrame = firstArtboard.frame().scaleBy(1.2);
+
+		offsetRect = firstArtboard.rect();
+		view.zoomToFitRect(tempFrame.rect());
 	}
 
 };
