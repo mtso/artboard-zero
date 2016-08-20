@@ -2,7 +2,7 @@
 
 This Sketch plugin automatically places the first artboard of a page at the specified origin (currently 0, 0).
 
-Makes use of the undocumented ArtboardChanged Action; curretly broken after the first page of a document.
+Makes use of the undocumented ArtboardChanged Action; currently broken after the first page of a document.
 
 #### Future
 
